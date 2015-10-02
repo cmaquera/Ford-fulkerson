@@ -1,0 +1,48 @@
+<!DOCTYPE html>	
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Algoritmo</title>
+		<style type="text/css">
+			#principal{
+				display: block;
+				position: relative;
+				width: : 500px;
+				border: 1px solid black;
+				margin: 0 auto;
+				height: 300px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="principal">
+			Texto ejemplo
+		</div>
+		<form action="<?=$_SERVER['PHP_SELF']?>" method="post" name="fcontacto">
+
+			<p>A través de donde nos has conocido:<br />
+
+				<input type="radio" name="Conocido" value="Google" id="Conocido_0" onclick="mostrarReferencia();" /> Google
+				<input type="radio" name="Conocido" value="Otros" id="Conocido_1" onclick="mostrarReferencia();" /> Otros
+			</p>
+
+		<div id="desdeotro" style="display:none;">
+			<p>Referencia de la oferta:</p>
+			<p><input type="text" name="otro" class="input" /></p>
+		</div>
+		<script type="text/javascript">
+			function mostrarReferencia(){
+			//Si la opcion con id Conocido_1 (dentro del documento > formulario con name fcontacto >     y a la vez dentro del array de Conocido) esta activada
+			if (document.fcontacto.Conocido[1].checked == true) {
+			//muestra (cambiando la propiedad display del estilo) el div con id 'desdeotro'
+			document.getElementById('desdeotro').style.display='block';
+			//por el contrario, si no esta seleccionada
+			} else {
+			//oculta el div con id 'desdeotro'
+			document.getElementById('desdeotro').style.display='none';
+			}
+			}
+		</script>
+	</body>
+</html>
